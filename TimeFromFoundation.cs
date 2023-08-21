@@ -2,6 +2,7 @@
 // Date: 21/08/2023 - All rights reserved.
 //
 using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace IDGenerator
 {
@@ -45,7 +46,7 @@ namespace IDGenerator
 		/// from the current year until the date it is generated.
 		/// </summary>
 		/// <returns>String with 6 to 8 digits long for the total seconds</returns>
-		public static string CreateTimeStampFromCurrentYear()
+		public static string CreateTimeStampInSecondsFromCurrentYear()
 		{
 			//Initialising the actual date and time
 			DateTime today = DateTime.UtcNow;
@@ -110,9 +111,10 @@ namespace IDGenerator
 			return finalNumber.ToString();
 		}
 
+
+
 		/// <summary>
-		/// Generates a string representation with the total minutes from
-		/// the start of the current year until the date passed as a paramenter.
+		/// Overload that generates a time stamp in minutes from a given DateTime parameter.
 		/// </summary>
 		/// <param name="date">DateTime with the date to be subtracted from the time span.</param>
 		/// <returns>String with the total minutes.</returns>
@@ -131,6 +133,48 @@ namespace IDGenerator
 			// Converting to string and returning
 			return finalNumber.ToString();
 		}
+
+		/// <summary>
+		/// Generates a time span in minutes from two given dates.
+		/// </summary>
+		/// <param name="olderDate">DateTime older date</param>
+		/// <param name="newerDate">DateTime newer date</param>
+		/// <returns>String representation of the time span in minutes.</returns>
+		public static string CreateTimeStampInMinutesFromTwoDates(DateTime olderDate, DateTime newerDate)
+		{
+			TimeSpan ts = newerDate.Subtract(olderDate);
+
+			// Getting the total in minutes
+			var result = ts.TotalMinutes;
+
+			// Converting to integer
+			int finalNumber = (int)result;
+
+			// Converting to string and returning
+			return finalNumber.ToString();
+		}
+
+		/// <summary>
+		/// Generates a time span in seconds from two given dates.
+		/// </summary>
+		/// <param name="olderDate">DateTime older date</param>
+		/// <param name="newerDate">DateTime newer date</param>
+		/// <returns>String representation of the time span in seconds.</returns>
+		public static string CreateTimeStampInSecondsFromTwoDates(DateTime olderDate, DateTime newerDate)
+		{
+			TimeSpan ts = newerDate.Subtract(olderDate);
+
+			// Getting the total in minutes
+			var result = ts.TotalSeconds;
+
+			// Converting to integer
+			int finalNumber = (int)result;
+
+			// Converting to string and returning
+			return finalNumber.ToString();
+		}
+
+
 	}
 }
 
