@@ -1,7 +1,6 @@
 ﻿// Author: Jefferson Giovanni D. Schneider - Email: bluedreams.code@outlook.com
 // Date: 21/08/2023 - All rights reserved.
 //
-using System;
 namespace IDGenerator
 {
 	public static class IDGenerator
