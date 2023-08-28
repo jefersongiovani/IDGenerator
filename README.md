@@ -1,4 +1,4 @@
-Simple and Extensible ID Generator
+Simple and Extendable ID Generator
 ==================================
 
 This generator creates different patterns of ID for use when you need more than sequential Ids, and when a Guid does not fulfil your use cases.
